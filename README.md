@@ -2,9 +2,20 @@
 
 A Generic Queue package for Go.
 
+```bash
+go get github.com/markekraus/genq
+```
+
 ```go
+package main
+
+import (
+    "fmt"
+    genq "github.com/markekraus/genq/pkg"
+)
+
 func main() {
-    q := q.New[int]()
+    q := genq.New[int]()
     fmt.Printf("messages: %v, want: %v\n", q.Len(), 0)
     q.Enqueue(3)
     q.Enqueue(2)
