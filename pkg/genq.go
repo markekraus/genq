@@ -53,13 +53,13 @@ func (q *Queue[T]) Enqueue(v T) *Message[T] {
 }
 
 // Dequeue returns the next Message[T] and removes it from Queue[T] q or nil if the queue is empty.
-func (q *Queue[T]) Dequeue() *T {
+func (q *Queue[T]) Dequeue() *Message[T] {
 	if q.len == 0 {
 		return nil
 	}
 	m := q.root.next
 	q.remove(m)
-	return &m.Value
+	return m
 }
 
 // Len returns the number of elements of Queue[T] q.

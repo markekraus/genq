@@ -22,9 +22,9 @@ func main() {
     q.Enqueue(90)
     fmt.Printf("messages: %v, want: %v\n", q.Len(), 3)
     for i := q.Len(); i > 0; i-- {
-        m := *q.Dequeue()
+        m := q.Dequeue()
         fmt.Printf("messages: %v, want: %v\n", q.Len(), i)
-        fmt.Printf("Value: %v\n", m)
+        fmt.Printf("Value: %v\n", m.Value)
     }
 }
 ```
