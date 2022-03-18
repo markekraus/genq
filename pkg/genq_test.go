@@ -14,3 +14,12 @@ func TestQueue(t *testing.T) {
 	q := New[bool]()
 	checkQueueLen[bool](t, q, 0)
 }
+
+func TestEnqueue(t *testing.T) {
+	q := New[bool]()
+	checkQueueLen[bool](t, q, 0)
+	q.Enqueue(true)
+	checkQueueLen[bool](t, q, 1)
+	q.Enqueue(false)
+	checkQueueLen[bool](t, q, 2)
+}
