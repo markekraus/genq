@@ -23,3 +23,32 @@ func TestEnqueue(t *testing.T) {
 	q.Enqueue(false)
 	checkQueueLen[bool](t, q, 2)
 }
+
+func TestDequeue(t *testing.T) {
+	q := New[bool]()
+	q.Enqueue(true)
+	q.Enqueue(false)
+	q.Enqueue(true)
+	q.Enqueue(false)
+	checkQueueLen[bool](t, q, 4)
+	m := q.Dequeue()
+	checkQueueLen[bool](t, q, 3)
+	if m.Value != true {
+		t.Errorf("m.Value = %v, want %v", m.Value, true)
+	}
+	m = q.Dequeue()
+	checkQueueLen[bool](t, q, 2)
+	if m.Value != false {
+		t.Errorf("m.Value = %v, want %v", m.Value, false)
+	}
+	m = q.Dequeue()
+	checkQueueLen[bool](t, q, 1)
+	if m.Value != true {
+		t.Errorf("m.Value = %v, want %v", m.Value, true)
+	}
+	m = q.Dequeue()
+	checkQueueLen[bool](t, q, 0)
+	if m.Value != false {
+		t.Errorf("m.Value = %v, want %v", m.Value, false)
+	}
+}
