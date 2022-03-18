@@ -1,6 +1,6 @@
 # genq
 
-A Generic Queue package for Go.
+A Generic Queue (FIFO/LILO) package for Go.
 
 ```bash
 go get github.com/markekraus/genq
