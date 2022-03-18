@@ -31,24 +31,24 @@ func TestDequeue(t *testing.T) {
 	q.Enqueue(true)
 	q.Enqueue(false)
 	checkQueueLen[bool](t, q, 4)
-	m := q.Dequeue()
+	m := *q.Dequeue()
 	checkQueueLen[bool](t, q, 3)
-	if m.Value != true {
-		t.Errorf("m.Value = %v, want %v", m.Value, true)
+	if m != true {
+		t.Errorf("m = %v, want %v", m, true)
 	}
-	m = q.Dequeue()
+	m = *q.Dequeue()
 	checkQueueLen[bool](t, q, 2)
-	if m.Value != false {
-		t.Errorf("m.Value = %v, want %v", m.Value, false)
+	if m != false {
+		t.Errorf("m = %v, want %v", m, false)
 	}
-	m = q.Dequeue()
+	m = *q.Dequeue()
 	checkQueueLen[bool](t, q, 1)
-	if m.Value != true {
-		t.Errorf("m.Value = %v, want %v", m.Value, true)
+	if m != true {
+		t.Errorf("m = %v, want %v", m, true)
 	}
-	m = q.Dequeue()
+	m = *q.Dequeue()
 	checkQueueLen[bool](t, q, 0)
-	if m.Value != false {
-		t.Errorf("m.Value = %v, want %v", m.Value, false)
+	if m != false {
+		t.Errorf("m = %v, want %v", m, false)
 	}
 }
