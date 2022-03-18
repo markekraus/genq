@@ -66,7 +66,7 @@ func (q *Queue[T]) Dequeue() *Message[T] {
 // The complexity is O(1).
 func (q *Queue[T]) Len() int { return q.len }
 
-// Init initializes or clears list l.
+// Init initializes or clears queue q.
 func (q *Queue[T]) Init() *Queue[T] {
 	q.root.next = &q.root
 	q.root.prev = &q.root
@@ -74,7 +74,7 @@ func (q *Queue[T]) Init() *Queue[T] {
 	return q
 }
 
-// New returns an initialized list.
+// New returns an initialized queue.
 func New[T any]() *Queue[T] {
 	return new(Queue[T]).Init()
 }
