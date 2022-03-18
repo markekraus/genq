@@ -52,7 +52,7 @@ func (q *Queue[T]) Enqueue(v T) *Message[T] {
 	return q.insertValue(v, q.root.prev)
 }
 
-// Front returns the next Message[T] and removes it from Queue[T] q or nil if the queue is empty.
+// Dequeue returns the next Message[T] and removes it from Queue[T] q or nil if the queue is empty.
 func (q *Queue[T]) Dequeue() *Message[T] {
 	if q.len == 0 {
 		return nil
