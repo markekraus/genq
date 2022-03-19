@@ -1,13 +1,14 @@
 // Package genq provides a generic FIFO queue.
 package genq
 
-// Message is a message from the queue
+// Message is a message from the queue with a value of type T
 type Message[T any] struct {
 	next, prev *Message[T]
 	queue      *Queue[T]
 	Value      T
 }
 
+// Queue is a FIFO/LILO message queue that stores messages with a value of type T
 type Queue[T any] struct {
 	root Message[T]
 	len  int
