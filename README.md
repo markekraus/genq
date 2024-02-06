@@ -1,6 +1,7 @@
 # genq
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/markekraus/genq/pkg.svg)](https://pkg.go.dev/github.com/markekraus/genq/pkg)
+
 A Generic Queue (FIFO/LILO) package for Go.
 
 ```bash
